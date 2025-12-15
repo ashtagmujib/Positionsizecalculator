@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crypto Position Size Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 40px auto;
+    }
+    input, button {
+      width: 100%;
+      margin: 6px 0;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<h3>Position Size Calculator</h3>
+
+<input id="risk" type="number" placeholder="Risk Amount ($)" />
+<input id="entry" type="number" placeholder="Entry Price" />
+<input id="stop" type="number" placeholder="Stop Loss Price" />
+<input id="leverage" type="number" placeholder="Leverage (e.g. 10)" />
+
+<button onclick="calculate()">Calculate</button>
+
+<p id="result"></p>
+
+<script>
+  function calculate() {
+    const risk = parseFloat(document.getElementById("risk").value);
+    const entry = parseFloat(document.getElementById("entry").value);
+    const stop = parseFloat(document.getElementById("stop").value);
+    const leverage = parseFloat(document.getElementById("leverage").value);
+
+    if (!risk || !entry || !stop || !leverage) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    const positionSize =
+      (risk * entry) / Math.abs(entry - stop);
+
+    const marginNeeded =
+      positionSize / leverage;
+
+    document.getElementById("result").innerHTML = `
+      <strong>Position Size:</strong> $${positionSize.toFixed(2)}<br>
+      <strong>Margin Needed:</strong> $${marginNeeded.toFixed(2)}
+    `;
+  }
+</script>
+
+</body>
+</html>
