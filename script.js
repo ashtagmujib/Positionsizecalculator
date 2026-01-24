@@ -20,7 +20,7 @@ function darkmode() {
     sun.style.display = 'block';
 
     // change colors
-    body.style.backgroundColor = '#04090F';
+    body.style.backgroundColor = '#3c3e3fff';
     body.style.color = '#D9E3E5';
     
     BTN.style.backgroundColor = 'white';
@@ -51,6 +51,7 @@ function lightmode() {
 
     result.style.backgroundColor = 'black';
     result.style.color = 'white';
+    
     localStorage.setItem('theme', JSON.stringify(theme))
 }
 
@@ -64,8 +65,13 @@ if(parsedTheme === 'dark' ) {
     sun.style.display = 'block';
 
     // change colors
-    body.style.backgroundColor = '#04090F';
+    body.style.backgroundColor = '#3c3e3fff';
     body.style.color = '#D9E3E5';
+    BTN.style.backgroundColor = 'white';
+    BTN.style.color = 'black';
+
+    result.style.backgroundColor = 'white';
+    result.style.color = 'black';
 }
 
 else if (parsedTheme === 'light') {
@@ -75,6 +81,12 @@ else if (parsedTheme === 'light') {
     // change colors
     body.style.backgroundColor = '#fff';
     body.style.color = '#04090F';
+    
+    BTN.style.backgroundColor = 'black';
+    BTN.style.color = 'white';
+
+    result.style.backgroundColor = 'black';
+    result.style.color = 'white';
 }
 
 
@@ -94,8 +106,7 @@ function calculate() {
 
     RST= document.getElementById("result");
     RST.style.display = 'block';
-    RST.style.backgroundColor = 'black';
-    RST.innerHTML = `Order Value - $${positionSize.toFixed(2)}<br>`;  
+    RST.innerHTML = `<p>Order Value - $ <strong>${positionSize.toFixed(2)}</strong></p>`;  
 }    
 
 
