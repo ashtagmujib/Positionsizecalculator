@@ -36,22 +36,55 @@ header h1 {
     font-size: 15px;
 }
 
-header div {
-    width: 30px;
+header {
+    width: 100%;
     height: auto;
-    padding: 3px;
+    padding: 20px;
 }
 
 #sun {
     display: none;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 10px;
+
+    position: relative;
 }
 
-#sun path {
-    fill: #fff;
+#sun::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 30px;
+    height: 15px;
+    background-color: black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #moon {
-    display: none;
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border-radius: 10px;
+
+    position: relative;
+}
+
+#moon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 30px;
+    height: 15px;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 
