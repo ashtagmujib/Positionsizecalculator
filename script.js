@@ -95,7 +95,7 @@ function calculate() {
     RST= document.getElementById("result");
     RST.style.display = 'block';
     RST.style.backgroundColor = 'black';
-    RST.innerHTML = `<strong>Order Value:</strong> $${positionSize.toFixed(2)}<br>`;  
+    RST.innerHTML = `Order Value - $${positionSize.toFixed(2)}<br>`;  
 }    
 
 
