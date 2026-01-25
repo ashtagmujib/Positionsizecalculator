@@ -100,13 +100,15 @@ function calculate() {
       return;
     }  
 
-    const positionSize =
-      (risk * entry) / Math.abs(entry - stop);
+    const positionSize = (risk * entry) / Math.abs(entry - stop);
 
 
     RST= document.getElementById("result");
     RST.style.display = 'block';
-    RST.innerHTML = `<p>Order Value - $ <strong>${positionSize.toFixed(2)}</strong></p>`;  
+    RST.innerHTML = `<p>Order Value - $ <strong>${positionSize.toFixed(2)}</strong></p>`; 
+    RST.style.backgroundColor = 'black';
+    RST.style.color = 'white';
+
 }    
 
 
