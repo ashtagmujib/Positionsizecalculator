@@ -107,14 +107,6 @@ function calculate() {
     RST.style.display = 'block';
     RST.innerHTML = `<p>Order Value - $ <strong>${positionSize.toFixed(2)}</strong></p>`; 
 
-    if (body.backgroundColor = 'white') {
-        RST.style.backgroundColor = 'black';
-        RST.style.color = 'white';
-    } else {
-        RST.style.backgroundColor = 'white';
-        RST.style.color = 'black';
-    }
-
 }    
 
 
