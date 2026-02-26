@@ -29,17 +29,16 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    padding: 10px 20px 50px;
+    padding: 20px 20px 50px;
 }
 
 header h1 {
     font-size: 15px;
 }
 
-header {
-    width: 100%;
-    height: auto;
-    padding: 20px;
+.mode {
+    border: 0;
+    padding: 0;
 }
 
 #sun {
@@ -50,6 +49,7 @@ header {
     border-radius: 10px;
 
     position: relative;
+    border: 0;
 }
 
 #sun::before {
@@ -72,6 +72,7 @@ header {
     border-radius: 10px;
 
     position: relative;
+    border: 0;
 }
 
 #moon::after {
@@ -99,6 +100,12 @@ input, button {
     border-radius: 10px;
     border: 1px solid black;
     outline: none;
+}
+
+input.dark {
+    background-color: black;
+    border:1px solid white;
+    color: white;
 }
 
 #btn {

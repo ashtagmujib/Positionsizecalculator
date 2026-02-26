@@ -4,6 +4,7 @@ const moon = document.getElementById('moon');
 
 const BTN = document.getElementById('btn');
 const result = document.getElementById('result');
+const inp = document.querySelector('input');
 
 
 let theme;
@@ -28,6 +29,8 @@ function darkmode() {
 
     result.style.backgroundColor = 'white';
     result.style.color = 'black';
+
+    inp.
 
 
     localStorage.setItem('theme', JSON.stringify(theme))
@@ -65,13 +68,16 @@ if(parsedTheme === 'dark' ) {
     sun.style.display = 'block';
 
     // change colors
-    body.style.backgroundColor = '#black';
+    body.style.backgroundColor = 'black';
     body.style.color = '#D9E3E5';
     BTN.style.backgroundColor = 'white';
     BTN.style.color = 'black';
 
     result.style.backgroundColor = 'white';
     result.style.color = 'black';
+
+    input.style.backgroundColor = 'black';
+    input.style.border = '1px solid white';
 }
 
 else if (parsedTheme === 'light') {
