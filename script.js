@@ -30,8 +30,6 @@ function darkmode() {
     result.style.backgroundColor = 'white';
     result.style.color = 'black';
 
-    inp.
-
 
     localStorage.setItem('theme', JSON.stringify(theme))
 
