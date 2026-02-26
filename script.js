@@ -20,7 +20,7 @@ function darkmode() {
     sun.style.display = 'block';
 
     // change colors
-    body.style.backgroundColor = '#3c3e3fff';
+    body.style.backgroundColor = 'black';
     body.style.color = '#D9E3E5';
     
     BTN.style.backgroundColor = 'white';
