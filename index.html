@@ -19,6 +19,8 @@
         </div>
     </header>
     <!--div> end of header section </div-->
+
+    <!-- Calculator -->
     <div id="cal">
     
       <input id="risk" type="number" placeholder="Risk Amount ($)" />
@@ -29,6 +31,29 @@
 
       <div id="result"></div>
     </div>
+    <!-- Calculator -->
+
+    <button id="openJournal">Journal</button>
+    <!-- Journal Popup -->
+    <div id="journalPopup" class="popup hidden">
+
+      <div class="popup-header">
+        <button id="backBtn">Back</button>
+      </div>
+
+      <div id="tradeList"></div>
+
+      <div class="stats">
+          <p>Total Trades: <span id="totalTrades">0</span></p>
+          <p>Wins: <span id="totalWins">0</span></p>
+          <p>Losses: <span id="totalLosses">0</span></p>
+          <p>Win Rate: <span id="winRate">0%</span></p>
+      </div>
+
+      <button id="clearTrades">Clear All Trades</button>
+
+    </div>
+    <!-- Journal Popup -->
     
   
     <script src="./script.js"></script>

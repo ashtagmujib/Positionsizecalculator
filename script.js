@@ -6,6 +6,20 @@ const BTN = document.getElementById('btn');
 const result = document.getElementById('result');
 const inp = document.querySelector('input');
 
+const openJournal = document.getElementById("openJournal");
+const journalPopup = document.getElementById("journalPopup");
+const backBtn = document.getElementById("backBtn");
+const tradeList = document.getElementById("tradeList");
+const clearTradesBtn = document.getElementById("clearTrades");
+
+const stats = document.querySelector(".stats");
+
+const totalTradesEl = document.getElementById("totalTrades");
+const totalWinsEl = document.getElementById("totalWins");
+const totalLossesEl = document.getElementById("totalLosses");
+const winRateEl = document.getElementById("winRate");
+
+
 
 let theme;
 
@@ -23,6 +37,12 @@ function darkmode() {
     // change colors
     body.style.backgroundColor = 'black';
     body.style.color = '#D9E3E5';
+
+    journalPopup.style.backgroundColor = 'black';
+    journalPopup.style.color = '#D9E3E5';
+
+    stats.style.backgroundColor = 'black';
+    stats.style.color = '#D9E3E5';
     
     BTN.style.backgroundColor = 'white';
     BTN.style.color = 'black';
@@ -46,6 +66,12 @@ function lightmode() {
     // change colors
     body.style.backgroundColor = '#fff';
     body.style.color = '#04090F';
+
+    journalPopup.style.backgroundColor = '#fff';
+    journalPopup.style.color = '#black';
+
+    stats.style.backgroundColor = '#fff';
+    stats.style.color = 'black';
 
     BTN.style.backgroundColor = 'black';
     BTN.style.color = 'white';
@@ -106,15 +132,104 @@ function calculate() {
 
     const positionSize = (risk * entry) / Math.abs(entry - stop);
 
-
     RST= document.getElementById("result");
     RST.style.display = 'block';
     RST.innerHTML = `<p>Order Value - $ <strong>${positionSize.toFixed(2)}</strong></p>`; 
+
+    // Automatically add trade to journal
+    addTrade({
+        risk: risk,
+        entry: entry,
+        stop: stop
+    });
 
 }    
 
 
 
 
+// =======================
+// TRADE JOURNAL SYSTEM
+// =======================
+
+let trades = JSON.parse(localStorage.getItem("trades")) || [];
+
+function saveTrades() {
+    localStorage.setItem("trades", JSON.stringify(trades));
+}
+
+openJournal.addEventListener("click", () => {
+    journalPopup.classList.remove("hidden");
+});
+
+backBtn.addEventListener("click", () => {
+    journalPopup.classList.add("hidden");
+});
+
+clearTradesBtn.addEventListener("click", () => {
+    trades = [];
+    saveTrades();
+    renderTrades();
+});
+
+function addTrade(tradeData) {
+    trades.push({ ...tradeData, result: null });
+    saveTrades();
+    renderTrades();
+}
+
+function markWin(index) {
+    trades[index].result = "win";
+    saveTrades();
+    renderTrades();
+}
+
+function markLoss(index) {
+    trades[index].result = "loss";
+    saveTrades();
+    renderTrades();
+}
+
+function renderTrades() {
+    tradeList.innerHTML = "";
+
+    let wins = 0;
+    let losses = 0;
+
+    trades.forEach((trade, index) => {
+        const div = document.createElement("div");
+        div.classList.add("trade-item");
+
+        if (trade.result === "win") {
+            div.classList.add("win");
+            wins++;
+        }
+
+        if (trade.result === "loss") {
+            div.classList.add("loss");
+            losses++;
+        }
+
+        div.innerHTML = `
+            <p><strong>Risk:</strong> $${trade.risk}</p>
+            <p><strong>Entry:</strong> ${trade.entry}</p>
+            <p><strong>Stop:</strong> ${trade.stop}</p>
+            <button onclick="markWin(${index})">Win</button>
+            <button onclick="markLoss(${index})">Loss</button>
+        `;
+
+        tradeList.appendChild(div);
+    });
+
+    const total = trades.length;
+    totalTradesEl.textContent = total;
+    totalWinsEl.textContent = wins;
+    totalLossesEl.textContent = losses;
+
+    const winRate = total > 0 ? ((wins / total) * 100).toFixed(2) : 0;
+    winRateEl.textContent = winRate + "%";
+}
+
+renderTrades();
 
 
