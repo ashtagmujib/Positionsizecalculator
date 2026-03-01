@@ -158,20 +158,21 @@ input.dark {
     bottom: 50px;
     right: 30px;
 
-    background-color: black;
-    color: white;
+    /* background-color: black;
+    color: white; */
 }
 
 .popup {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: white;
     color: black;
     padding: 20px;
     overflow-y: auto;
+    overflow-x: hidden;
     z-index: 999;
     transition: 0.3s ease;
 }
@@ -182,28 +183,29 @@ input.dark {
 
 .popup-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     align-items: center;
     margin-bottom: 20px;
+    
 }
-
 
 
 .trade-item {
     padding: 15px;
     margin: 10px 0;
-    background-color: white;
+    background-color: black;
     border-radius: 10px;
-    color: black;
+    color: white;
 }
 
 .trade-item button {
     margin-top: 5px;
-    width: 48%;
+    width: 30%;
+    height: auto;
 }
 
 .win {
-    border-left: 5px solid green;
+    border-left: 5px solid rgb(107, 247, 107);
 }
 
 .loss {
@@ -213,16 +215,33 @@ input.dark {
 .stats {
     margin-top: 20px;
     padding: 15px;
-    background-color: white;
+
+    width: 500px;
+    height: 300px;
+    
     border-radius: 10px;
     color: black;
+
+    font-size: 15px;
 }
 
-#clearTrades,
+#clearTrades {
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+
+    width: 150px;
+    margin-bottom: 20px;
+}
+
 #backBtn {
     background-color: black;
     color: white;
     border-radius: 8px;
     padding: 8px;
     cursor: pointer;
+
+    width: 80px;
+    margin-top: 20px;
+
 }

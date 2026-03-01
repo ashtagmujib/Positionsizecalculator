@@ -10,6 +10,7 @@ const openJournal = document.getElementById("openJournal");
 const journalPopup = document.getElementById("journalPopup");
 const backBtn = document.getElementById("backBtn");
 const tradeList = document.getElementById("tradeList");
+// const tradeItem = document.getElementById("trade-item");
 const clearTradesBtn = document.getElementById("clearTrades");
 
 const stats = document.querySelector(".stats");
@@ -38,11 +39,17 @@ function darkmode() {
     body.style.backgroundColor = 'black';
     body.style.color = '#D9E3E5';
 
+    openJournal.style.backgroundColor = 'white';
+    openJournal.style.color = 'black';
+
     journalPopup.style.backgroundColor = 'black';
     journalPopup.style.color = '#D9E3E5';
 
-    stats.style.backgroundColor = 'black';
-    stats.style.color = '#D9E3E5';
+    clearTradesBtn.style.backgroundColor = 'white';
+    clearTradesBtn.style.color = 'black';
+
+    // backBtn.style.backgroundColor = 'white';
+    // backBtn.style.color = 'black';
     
     BTN.style.backgroundColor = 'white';
     BTN.style.color = 'black';
@@ -67,11 +74,17 @@ function lightmode() {
     body.style.backgroundColor = '#fff';
     body.style.color = '#04090F';
 
+    openJournal.style.backgroundColor = 'black';
+    openJournal.style.color = 'white';
+
     journalPopup.style.backgroundColor = '#fff';
     journalPopup.style.color = '#black';
 
-    stats.style.backgroundColor = '#fff';
-    stats.style.color = 'black';
+    clearTradesBtn.style.backgroundColor = '#fff';
+    clearTradesBtn.style.color = 'black';
+
+    // backBtn.style.backgroundColor = '#fff';
+    // backBtn.style.color = 'black';
 
     BTN.style.backgroundColor = 'black';
     BTN.style.color = 'white';
@@ -102,6 +115,14 @@ if(parsedTheme === 'dark' ) {
 
     input.style.backgroundColor = 'black';
     input.style.border = '1px solid white';
+
+    openJournal.style.backgroundColor = 'white';
+    openJournal.style.color = 'black';
+
+    clearTradesBtn.style.backgroundColor = 'white';
+    clearTradesBtn.style.color = 'black';
+
+
 }
 
 else if (parsedTheme === 'light') {
@@ -117,7 +138,14 @@ else if (parsedTheme === 'light') {
 
     result.style.backgroundColor = 'black';
     result.style.color = 'white';
+
+    openJournal.style.backgroundColor = 'black';
+    openJournal.style.color = 'white';
+
+    clearTradesBtn.style.backgroundColor = 'black';
+    clearTradesBtn.style.color = 'white';
 }
+
 
 
 function calculate() {
